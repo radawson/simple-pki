@@ -16,23 +16,11 @@ cp /dev/null ca/signing-ca/db/signing-ca.db.attr
 echo 01 > ca/signing-ca/db/signing-ca.crt.srl
 echo 01 > ca/signing-ca/db/signing-ca.crl.srl
 
-# Open the Root CA configuration
-sudo nano etc/root-ca.conf
+# Open the Signing CA configuration
+sudo nano etc/signing-ca.conf
 
-# Create the CA request
+# Create the signing CA
 # The openssl req command takes its configuration from the [req] section of the root-ca.conf file.
 # You will be asked for a passphrase to protect the private key.
-echo -e "Creating the signing CA request"
-openssl req -new \
-    -config etc/signing-ca.conf \
-    -out ca/signing-ca.csr \
-    -keyout ca/signing-ca/private/signing-ca.key
-	
-# Create the Root CA certificate
-# The openssl ca command takes its configuration from the [ca] section of the root-ca.conf file.
-openssl ca -selfsign \
-    -config etc/root-ca.conf \
-    -in ca/root-ca.csr \
-    -out ca/root-ca.crt \
-    -extensions root_ca_ext
+cs-new-signing.sh signing-ca
 	

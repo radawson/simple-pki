@@ -8,7 +8,7 @@ elif [[ $1 =~ ^[0-9a-zA-Z_-]+$ ]];then
 	NAME=$1	
 else
 	echo -e "\n\nInvalid certificate name"
-	exit
+	exit 1
 fi
 
 # Create the CA request

@@ -14,7 +14,9 @@ else
 	exit 1
 fi
 
-# REvoke the certificate
+#TODO: confirm that the certificate is the correct one to be revoked.
+
+# Revoke the certificate
 # The openssl req command takes its configuration from the [req] section of the email.conf file.
 # You will be asked for a passphrase to protect the private key.
 echo -e "Creating the Email request"

@@ -32,5 +32,5 @@ sudo nano etc/signing-ca.conf
 # Create the signing CA
 # The openssl req command takes its configuration from the [req] section of the root-ca.conf file.
 # You will be asked for a passphrase to protect the private key.
-cs-new-signing.sh $NAME
+./cs-new-signing.sh $NAME
 	

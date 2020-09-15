@@ -3,7 +3,8 @@
 
 # Check command line input
 if [ -z "$1" ];then
-	NAME="signing-ca"
+	echo -e "\n\nYou must specify a certificate name"
+	exit 1
 elif [[ $1 =~ ^[0-9a-zA-Z_-]+$ ]];then
 	NAME=$1	
 else
